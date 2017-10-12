@@ -46,7 +46,7 @@ void narcissistic(long long number) { // whole isn't integer, so why not a negat
         printf("NIE\n");
 }
 
-int main() {
+int narcissistic_main() {
 
     //9999998888888777777
     long long number;

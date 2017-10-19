@@ -8,10 +8,10 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <time.h>
-#include <windef.h>
 
 #define MAX_YEAR 3000
 #define LEAP_YEAR(y) (((y) % 4 == 0 && (y) % 100 != 0) || (y) % 400 == 0)
+#define max(a, b) ((a) < (b) ? (b) : (a))
 
 struct tm today; //current time;
 

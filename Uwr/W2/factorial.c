@@ -1,5 +1,5 @@
 //
-// Created by i300791 on 18.10.17.
+// Created by Tooster on 18.10.17.
 //
 
 #include <stdio.h>
@@ -10,8 +10,8 @@ long long factorial(long long n){
 }
 
 int main(){
-    printf("Please, input a number n from range 1-??");
+    printf("Please, input a number n from range 1-18\n");
     int n;
     scanf("%d");
-    printf("%ld", factorial(n));
+    printf("%d! = %lld", n, factorial((long long) n));
 }

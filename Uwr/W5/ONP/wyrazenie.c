@@ -17,10 +17,15 @@ struct wyrazenie *wyrazenie_alloc() {
     return w;
 }
 
+void wyrazenie_free(struct wyrazenie *w) {
+    stack2_free(w->stos);
+    free(w);
+}
+
 void wyrazenie_init(struct wyrazenie *w, char *string) {
     unsigned int length = 0;
     while (string[length++] != '\n');
-    stack *stos = stack_alloc();
+    stack2 *stos = stack2_alloc();
     assert(stos != NULL);
     w->stos = stos;
     w->string = string;
@@ -43,7 +48,7 @@ int wyrazenie_oblicz(struct wyrazenie *w) {
             if (wynik < 0)
                 i++;
         } else if (isspace(w->string[i])) { /// dodaje wynik na stos jak jest whitespace
-            stack_push(w->stos, wynik);
+            stack2_push(w->stos, wynik);
             wynik = 0;
         } else { /// Liczy dla osobnych operacji
             int arg[2];
@@ -52,11 +57,11 @@ int wyrazenie_oblicz(struct wyrazenie *w) {
              * Sciaga 2 wyniki ze stosu
              */
             for (int j = 0; j < 2; ++j) {
-                if (stack_isEmpty(w->stos)) {
+                if (stack2_isEmpty(w->stos)) {
                     printf("Blad wyrazenia ONP\n");
                     return 0;
                 }
-                arg[j] = stack_pop(w->stos);
+                arg[j] = stack2_pop(w->stos);
 
             }
 
@@ -79,8 +84,8 @@ int wyrazenie_oblicz(struct wyrazenie *w) {
                 wynik = min(arg[1], arg[0]);
         }
     }
-    int ret = stack_pop(w->stos);
-    if (!stack_isEmpty(w->stos)) {
+    int ret = stack2_pop(w->stos);
+    if (!stack2_isEmpty(w->stos)) {
         printf("Blad wyrazenia ONP\n");
         return 0;
     }

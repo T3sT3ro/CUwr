@@ -25,9 +25,7 @@ int main() {
         struct wyrazenie *w = wyrazenie_alloc();
         wyrazenie_init(w, input);
         printf("= %d\n", wyrazenie_oblicz(w));
-        /*
-         * Nowe wyrazenie i
-         */
+        wyrazenie_free(w);
     }
     return 0;
 }

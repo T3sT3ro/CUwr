@@ -20,10 +20,12 @@ struct stack_struct {
 
 stack *stack_alloc() {
     stack *s = malloc(sizeof(stack));
+    if (s == NULL) // alloc error
+        return NULL;
     struct node *begin = malloc(sizeof(struct node));
     struct node *end = malloc(sizeof(struct node));
-    if (s == NULL || begin == NULL || end == NULL) // alloc error
-        return s;
+    if (begin == NULL || end == NULL)
+        return NULL;
     s->size = 0;
     s->begin = begin;
     s->end = end;
@@ -34,7 +36,15 @@ stack *stack_alloc() {
 }
 
 void stack_free(stack *s) {
-    free(s);
+    struct node *removeNode = s->begin;
+    struct node *nextRemoveNode;
+    do {
+        nextRemoveNode = removeNode->next;
+        free(removeNode);
+        removeNode = nextRemoveNode;
+    } while (removeNode != NULL);
+    // zwalnia wszystkie Node-y
+    free(s); // zwalnia sam stack
 }
 
 bool stack_isEmpty(stack *s) {
@@ -62,11 +72,11 @@ stack_TYPE stack_pop(stack *s) {
 
     struct node *removed = s->begin->next;
     stack_TYPE ret = removed->val;
-    // begin -> a -> b
-    removed->prev->next = removed->next; // przepina begin.next na b
-    removed->next->prev = removed->prev; // ustawia b.prev na begin
+    // begin -> A -> B -> end
+    removed->prev->next = removed->next; // przepina begin.next na B
+    removed->next->prev = removed->prev; // ustawia B.prev na begin
 
-    free(removed); // zwalnia a
+    free(removed); // zwalnia A
     s->size--;
     return ret;
 }

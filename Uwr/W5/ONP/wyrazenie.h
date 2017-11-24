@@ -6,15 +6,17 @@
 #ifndef CUWR_WYRAZENIE_H
 #define CUWR_WYRAZENIE_H
 
-#include "stack.h"
+#include "stack2.h"
 
 struct wyrazenie {
-    stack *stos;
+    stack2 *stos;
     char *string;
     unsigned int length;
 };
 
 struct wyrazenie *wyrazenie_alloc();
+
+void wyrazenie_free(struct wyrazenie *w);
 
 void wyrazenie_init(struct wyrazenie *w, char *string);
 

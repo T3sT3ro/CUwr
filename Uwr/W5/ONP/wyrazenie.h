@@ -14,12 +14,30 @@ struct wyrazenie {
     unsigned int length;
 };
 
+/**
+ * Alokuje miejsce na nowe wyrazenie
+ * @return wskaznik na nowe wyrazenie w pamieci
+ */
 struct wyrazenie *wyrazenie_alloc();
 
-void wyrazenie_free(struct wyrazenie *w);
-
+/**
+ * Inicjalizuje wyrazenie 'w' z wejscia w formie stringa
+ * @param w wyrazenie do zainicjalizowania
+ * @param string string reprezentujacy wyrazenie ONP
+ */
 void wyrazenie_init(struct wyrazenie *w, char *string);
 
+/**
+ * Uwalnia pamiec zarezerwowana przez wyrazenie 'w'
+ * @param w wyrazenie do usuniecia
+ */
+void wyrazenie_free(struct wyrazenie *w);
+
+/**
+ * Zwraca calkowity wynik wyrazenia ONP lub 0 i blad jesli wyrazenie jest niepoprawne
+ * @param w wyrazenie do obliczenia
+ * @return wynik wyrazenia ONP lub 0 i blad
+ */
 int wyrazenie_oblicz(struct wyrazenie *w);
 
 #endif //CUWR_WYRAZENIE_H

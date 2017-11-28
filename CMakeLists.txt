@@ -3,5 +3,5 @@ project(CUwr)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SOURCE_FILES Uwr/W5/ONP/wyrazenie.c Uwr/W5/ONP/wyrazenie.c Uwr/W5/ONP/main.c Uwr/W5/ONP/wyrazenie.h Uwr/W5/ONP/stack.h Uwr/W5/ONP/stack.c Uwr/W5/ONP/stack2.h Uwr/W5/ONP/stack2.c)
+set(SOURCE_FILES Uwr/W5/tetris.c)
 add_executable(Cuwr ${SOURCE_FILES})

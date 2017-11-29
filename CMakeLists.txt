@@ -3,5 +3,5 @@ project(CUwr)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SOURCE_FILES Uwr/W5/tetris.c)
-add_executable(Cuwr ${SOURCE_FILES})
+set(SOURCE_FILES Uwr/W6/equals.c)
+add_executable(CUwr ${SOURCE_FILES})

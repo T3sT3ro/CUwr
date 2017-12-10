@@ -3,5 +3,8 @@ project(CUwr)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SOURCE_FILES Uwr/W7/BinaryTree.c Uwr/W7/BinaryTree.h Uwr/W7/BST_test.c)
+set(SOURCE_FILES Uwr/utils/deque.c Uwr/W7/Labirynt.c)
+
+include_directories("Uwr/utils")
+
 add_executable(CUwr ${SOURCE_FILES})

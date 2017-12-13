@@ -3,7 +3,7 @@ project(CUwr)
 
 set(CMAKE_C_STANDARD 99)
 
-set(SOURCE_FILES Uwr/utils/deque.c Uwr/W7/Labirynt.c)
+set(SOURCE_FILES Uwr/W8/fileFilter.c)
 
 include_directories("Uwr/utils")
 

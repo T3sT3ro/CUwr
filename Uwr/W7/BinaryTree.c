@@ -3,6 +3,7 @@
 //
 
 #include <malloc.h>
+#include <stdio.h>
 #include "BinaryTree.h"
 
 typedef struct node_struct node__;

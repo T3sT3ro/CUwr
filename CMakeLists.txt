@@ -4,13 +4,8 @@ project(CUwr)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_FLAGS "${CMAKE_CSS_FLAGS} -Wall -Wextra -Werror")
 
+set(SOURCE_FILES Uwr/W9/tree.c)
 
-find_package(Curses REQUIRED)
-
-include_directories(${CURSES_LIBRARIES} "Uwr/utils")
-
-set(SOURCE_FILES Uwr/W9/ball.c)
+include_directories("Uwr/utils")
 
 add_executable(CUwr ${SOURCE_FILES})
-
-target_link_libraries(CUwr ${CURSES_LIBRARIES})

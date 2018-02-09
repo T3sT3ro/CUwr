@@ -145,20 +145,12 @@ struct bignum pomnoz(struct bignum A, struct bignum B) {
     if (A.sign ^ B.sign)
         ret.sign = 1;
 
-    // zlicza ile jest zer na na końcu
-    int zerosA = 0;
-    for (int i = 0; i < A.digits && A.w[MAX_DIGITS - i - 1] == 0; ++i)
-        zerosA++;
-    int zerosB = 0;
-    for (int i = 0; i < B.digits && B.w[MAX_DIGITS - i - 1] == 0; ++i)
-        zerosB++;
-
     int carry = 0;
-    for (int k = 0; k < B.digits - zerosB; ++k) {
-        for (int j = 0; j < A.digits - zerosB + 1; ++j) { // + 1 żeby dodać jeszcze overflow od carry
-            ret.w[MAX_DIGITS - 1 - zerosB - zerosA - k - j] +=
-                    (carry + B.w[MAX_DIGITS - 1 - zerosB - k] * A.w[MAX_DIGITS - 1 - zerosA - j]) % 10;
-            carry = (carry + B.w[MAX_DIGITS - 1 - zerosB - k] * A.w[MAX_DIGITS - 1 - zerosA - j]) / 10;
+    for (int k = 0; k < B.digits; ++k) {
+        for (int j = 0; j < A.digits + 1; ++j) { // + 1 żeby dodać jeszcze overflow od carry
+            ret.w[MAX_DIGITS - 1 - k - j] +=
+                    (carry + B.w[MAX_DIGITS - 1 - k] * A.w[MAX_DIGITS - 1 - j]) % 10;
+            carry = (carry + B.w[MAX_DIGITS - 1 - k] * A.w[MAX_DIGITS - 1 - j]) / 10;
         }
     }
 
@@ -234,7 +226,7 @@ int main() {
     for (int i = 0; i < MAX_INPUT_DIGITS + 2; ++i)
         A[i] = B[i] = 0;
 
-    printf("Wpisz maksymalnie trzydziestocyfrowe liczby oddzielone znakiem operacji (+ lub -)\n");
+    printf("Wpisz maksymalnie trzydziestocyfrowe liczby ze znakiem operacji (+, -, * lub /)\n");
     printf("Wszystkie elementy wpisuj w nowych liniach.\n");
 
     fgets(A, MAX_BUFFER, stdin);

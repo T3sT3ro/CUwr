@@ -4,7 +4,7 @@ project(CUwr)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_FLAGS "${CMAKE_CSS_FLAGS} -Wall -Wextra -Werror")
 
-set(SOURCE_FILES Uwr/W4/bignum.c)
+set(SOURCE_FILES Uwr/W10/databaseController.c Uwr/W10/record.c Uwr/W10/record.h)
 
 include_directories("Uwr/utils")
 

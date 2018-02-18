@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.8)
 project(CUwr)
 
-set(CMAKE_C_STANDARD 99)
-set(CMAKE_CXX_FLAGS "${CMAKE_CSS_FLAGS} -Wall -Wextra -Werror")
+set(CMAKE_CXX_STANDARD 98)
+#set(CMAKE_CXX_FLAGS "${CMAKE_CSS_FLAGS} -Wall -Wextra -Werror")
 
-set(SOURCE_FILES Uwr/W10/databaseController.c Uwr/W10/record.c Uwr/W10/record.h)
+set(SOURCE_FILES MIA/acm.cpp)
 
 include_directories("Uwr/utils")
 

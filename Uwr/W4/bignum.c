@@ -212,7 +212,7 @@ struct bignum podziel(struct bignum A, struct bignum B) {
 }
 
 /// ładnie wypisuje bignuma
-struct bignum wypisz(struct bignum A) {
+void wypisz(struct bignum A) {
     if (A.sign == 1)
         putchar('-');
     for (int i = 0; i < A.digits; ++i)
